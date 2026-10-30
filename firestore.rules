@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Browser clients cannot read or modify invitation, progress, or photo metadata.
+    // Cloud Functions use the Admin SDK and are governed by server-side validation.
+    match /galleryInvites/{document=**} {
+      allow read, write: if false;
+    }
+    match /galleryProgress/{document=**} {
+      allow read, write: if false;
+    }
+    match /galleryPhotos/{document=**} {
+      allow read, write: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

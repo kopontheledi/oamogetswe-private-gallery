@@ -1,0 +1,544 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* ==============================
+   ROOT VARIABLES
+================================= */
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #594452;
+  background: #fff8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --pink: #d86f9e;
+  --pink-dark: #a94e7c;
+  --pink-light: #ffe5f0;
+  --blue: #79bde7;
+  --blue-light: #e4f5ff;
+  --cream: #fffaf1;
+  --ink: #594452;
+}
+
+/* ==============================
+   GLOBAL STYLES
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 211, 231, .52), transparent 28rem),
+    radial-gradient(circle at 94% 35%, rgba(190, 230, 255, .48), transparent 25rem),
+    #fff8fb;
+}
+
+button {
+  font: inherit;
+}
+
+/* ==============================
+   PAGE LAYOUT
+================================= */
+
+.page {
+  position: relative;
+  width: min(100% - 28px, 620px);
+  min-height: 90vh;
+  margin: 0 auto;
+  padding: 46px 0 38px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+/* ==============================
+   DECORATIONS
+================================= */
+
+.decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.deco {
+  position: absolute;
+  opacity: .48;
+  stroke-width: 1.4;
+}
+
+.deco-heart {
+  width: 29px;
+  top: 44px;
+  left: 5%;
+  color: var(--pink);
+  transform: rotate(-12deg);
+}
+
+.deco-cloud {
+  width: 37px;
+  top: 112px;
+  right: 3%;
+  color: var(--blue);
+}
+
+.deco-star {
+  width: 22px;
+  top: 310px;
+  left: 1%;
+  color: #d9b45b;
+}
+
+.deco-sparkles {
+  width: 25px;
+  right: 3%;
+  bottom: 115px;
+  color: var(--pink);
+}
+
+/* ==============================
+   TYPOGRAPHY
+================================= */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--pink-dark);
+  font-size: .72rem;
+  letter-spacing: .17em;
+  font-weight: 700;
+
+  position: relative;
+  z-index: 1;
+}
+
+h1,
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 9vw, 4rem);
+  color: var(--pink-dark);
+  margin: 18px 0 10px;
+  max-width: 100%;
+}
+
+h1 span {
+  color: #579ecf;
+  display: block;
+}
+
+h2 {
+  color: var(--pink-dark);
+  font-size: clamp(1.75rem, 7vw, 2.6rem);
+  margin: 15px 0 22px;
+}
+
+.subtitle {
+  max-width: 490px;
+  line-height: 1.75;
+  color: #7d6878;
+  margin: 0 auto 23px;
+}
+
+.intro-copy {
+  line-height: 1.8;
+  color: #7d6878;
+  max-width: 460px;
+  margin: 0 0 24px;
+}
+
+/* ==============================
+   PHOTO FRAMES
+================================= */
+
+.photo-frame {
+  width: min(100%, 500px);
+  aspect-ratio: 4 / 5;
+  padding: 9px;
+
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid #f3cadd;
+  border-radius: 24px;
+
+  box-shadow: 0 16px 44px rgba(170, 94, 132, .12);
+
+  /* overflow: hidden; */
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 17px;
+  user-select: none;
+}
+
+.parents-frame {
+  width: min(100%, 390px);
+  aspect-ratio: 4 / 3;
+  border-color: #b9dff5;
+}
+
+/* ==============================
+   PHOTO PLACEHOLDER
+================================= */
+
+.photo-placeholder {
+  height: 100%;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  background: linear-gradient(145deg, #fff0f7, #eaf7ff);
+  color: var(--pink-dark);
+  padding: 20px;
+}
+
+.photo-placeholder span {
+  font-weight: 600;
+}
+
+.photo-placeholder small {
+  color: #8d7a88;
+}
+
+/* ==============================
+   PARENTS CAPTION
+================================= */
+
+.parents-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: #619dc7;
+  font-size: .9rem;
+  font-style: italic;
+  margin: 15px 0 22px;
+}
+
+/* ==============================
+   LETTER CARD
+================================= */
+
+.letter-card {
+  text-align: left;
+  background: rgba(255, 255, 255, .78);
+  border: 1px solid #f5d7e4;
+
+  padding: clamp(20px, 5vw, 32px);
+  border-radius: 24px;
+  line-height: 1.85;
+
+  box-shadow: 0 10px 30px rgba(150, 96, 125, .05);
+}
+
+.letter-card p {
+  margin: 0 0 15px;
+}
+
+.letter-card .letter-greeting {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--pink-dark);
+  font-size: 1.35rem;
+}
+
+.letter-signoff {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--pink-dark);
+  font-style: italic;
+  margin: 19px 0 0;
+}
+
+.letter-signoff span {
+  color: var(--pink);
+  font-size: 1.4rem;
+}
+
+/* ==============================
+   BUTTONS
+================================= */
+
+.primary-button {
+  border: 0;
+  border-radius: 999px;
+
+  background: linear-gradient(105deg, #d96f9f, #8bbfe5);
+  color: white;
+
+  padding: 15px 23px;
+  min-height: 52px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(197, 113, 157, .22);
+  transition: transform .18s ease, opacity .18s ease;
+
+  width: min(100%, 360px);
+  position: relative;
+  z-index: 1;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+/* ==============================
+   NOTES & PRIVACY
+================================= */
+
+.privacy-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin: 22px 0 12px;
+  color: #7c92a8;
+  font-size: .83rem;
+}
+
+.tiny-note {
+  color: #9d8998;
+  font-size: .76rem;
+  margin-top: 17px;
+}
+
+.lock-reminder {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: .75rem;
+  color: #7d91a4;
+  margin-top: 13px;
+}
+
+/* ==============================
+   GALLERY PAGE
+================================= */
+
+.gallery-page {
+  padding-top: 30px;
+}
+
+.gallery-topline {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  color: #8a7790;
+  font-size: .65rem;
+  letter-spacing: .09em;
+  font-weight: 700;
+
+  margin-bottom: 30px;
+}
+
+.gallery-topline span:last-child {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #639dc5;
+}
+
+.progress-label {
+  color: var(--pink-dark);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  margin-bottom: 10px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 99px;
+  background: #f5dce8;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progress-track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #e67eab, #83c5ed);
+  border-radius: inherit;
+  transition: width .3s ease;
+}
+
+.gallery-page .photo-frame {
+  margin-bottom: 20px;
+}
+
+/* ==============================
+   BIBLE VERSE CARD
+================================= */
+
+.verse-card {
+  width: 100%;
+  border-radius: 22px;
+  border: 1px solid #cce8f8;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .92),
+    rgba(238, 248, 255, .9)
+  );
+
+  padding: 22px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.verse-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #5595bf;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.verse-card blockquote {
+  margin: 14px 0 10px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #5b5263;
+}
+
+.verse-reference {
+  margin: 0;
+  text-align: right;
+  color: var(--pink-dark);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.gallery-caption {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--pink-dark);
+  font-size: .88rem;
+  margin: 3px 0 20px;
+}
+
+/* ==============================
+   ERROR MESSAGE
+================================= */
+
+.error-message {
+  color: #a22e54;
+  background: #fff0f3;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: .85rem;
+}
+
+/* ==============================
+   FINISHED PAGE
+================================= */
+
+.finished-page {
+  justify-content: center;
+}
+
+.finish-icon {
+  width: 76px;
+  height: 76px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #ffe5f0;
+  color: var(--pink);
+
+  margin-bottom: 22px;
+}
+
+.finished-page h1 {
+  font-size: clamp(2.1rem, 8vw, 3.2rem);
+}
+
+.closing-card {
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid #cce8f8;
+  background: #f0f9ff;
+
+  line-height: 1.8;
+  margin: 18px 0;
+}
+
+.closing-card p {
+  font-size: 1.2rem;
+}
+
+.closing-card strong {
+  color: var(--pink-dark);
+  font-size: .85rem;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 420px) {
+  .page {
+    width: min(100% - 22px, 620px);
+    padding-top: 34px;
+  }
+
+  .letter-card {
+    border-radius: 19px;
+  }
+
+  .verse-card {
+    padding: 18px;
+  }
+
+  .verse-card blockquote {
+    font-size: 1.1rem;
+  }
+}
